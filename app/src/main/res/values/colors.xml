@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primary">#1CBEF5</color>
+    <color name="rouge">#F44336</color>
+    <color name="vert">#2FFF00</color>
+    <color name="Accent">#42D3B1</color>
+    <color name="backgroud">#F7F7FA</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="primary_text">#000000</color>
+    <color name="secondary_text">#9B9A9D</color>
+    <color name="secondary">#9B9A9D</color>
+    <color name="input_background">#D8D5D5</color>
+    <color name="grey">#a9a9a9</color>
+    <color name="black">#000000</color>
+    <color name="gray">#dddddd</color>
+    <color name="orange_claire">#fbe6dd</color>
+    <color name="loader_background_color">#55AAAAAA</color>
+    <color name="jaune">#FFC107</color>
+    <color name="bleu">#0051FF</color>
+    <color name="grise">#3CC5BCBC</color>
+    <color name="yellow">#E6D225</color>
+    <color name="green">#37FF00</color>
+</resources>
