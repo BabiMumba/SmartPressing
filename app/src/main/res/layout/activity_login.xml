@@ -84,6 +84,20 @@
             android:fontFamily="@font/poppins_semibold"
             app:cornerRadius="@dimen/_7sdp"
             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="Creez un compte"
+            android:textSize="@dimen/_10ssp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textColor="@color/primary"
+            android:padding="@dimen/_5sdp"
+            android:fontFamily="@font/poppins_semibold"
+            android:id="@+id/txt_register"
+            />
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_marginTop="@dimen/_10sdp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_90sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/image_service"
+        android:background="@drawable/dot_categoris_bkd"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80sdp"
+        android:src="@drawable/ma_lave"
+        />
+
+    <TextView
+        android:id="@+id/service_name"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image_service"
+        android:text="Reppassage"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginTop="@dimen/_5ssp"
+        android:gravity="center"
+        android:fontFamily="@font/poppins_bold"
+        android:textSize="@dimen/_10ssp"
+        />
+
+
+</RelativeLayout>

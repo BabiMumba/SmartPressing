@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/backgroud"
+    tools:context=".Fragment.HomeFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/_10sdp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layout_profile"
+            android:layout_marginTop="@dimen/_20sdp"
+            >
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:src="@drawable/baseline_person_24"
+                android:id="@+id/profile_image"
+                app:civ_border_color="@color/primary"
+                app:civ_border_width="@dimen/_1sdp"
+                />
+          <LinearLayout
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_toEndOf="@id/profile_image"
+              android:orientation="vertical"
+              android:layout_marginStart="@dimen/_5sdp"
+              android:layout_centerVertical="true"
+              >
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Bonjour,"
+                  android:textSize="@dimen/_10ssp"
+                  android:textColor="@color/primary_text"
+                  android:fontFamily="@font/poppins_regular"
+                  android:id="@+id/hey_txt"
+                  />
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Stone Castel"
+                  android:textSize="@dimen/_13ssp"
+                  android:textColor="@color/primary"
+                  android:fontFamily="@font/poppins_semibold"
+                  android:id="@+id/nom_txt"
+                  />
+          </LinearLayout>
+        </RelativeLayout>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/banner"
+                />
+        </com.google.android.material.card.MaterialCardView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nos Services"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/primary_text"
+                android:fontFamily="@font/poppins_semibold"
+                />
+            <TextView
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Afficher tout"
+                android:layout_alignParentEnd="true"
+                android:textSize="@dimen/_10ssp"
+                android:textColor="@color/primary"
+                android:fontFamily="@font/poppins_regular"
+                />
+
+        </RelativeLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recycler_services"
+            tools:listitem="@layout/item_services"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3"
+
+            />
+
+
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>
