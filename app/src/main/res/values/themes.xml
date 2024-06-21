@@ -7,10 +7,10 @@
     <style name="Base.Theme.Home" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="colorPrimary">@color/Accent</item>
-        <item name="colorPrimaryDark" >@color/Accent</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark" >@color/primary</item>
         <!-- <item name="android:statusBarColor" tools:targetApi="l">@color/Accent</item> -->
-        <item name="colorAccent">@color/Accent</item>
+        <item name="colorAccent">@color/primary</item>
     </style>
 
     <style name="Theme.Clean" parent="Base.Theme.Clean" />

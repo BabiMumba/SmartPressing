@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:src="@drawable/pantalon"
+        android:id="@+id/image_hab"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        />
+    <LinearLayout
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_toEndOf="@id/image_hab"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pantalon"
+            android:textSize="@dimen/_15ssp"
+            android:textColor="@color/primary_text"
+            android:fontFamily="@font/poppins_semibold"
+            android:id="@+id/nom_hab"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10$/pc"
+            android:textSize="@dimen/_13ssp"
+            android:textColor="@color/primary"
+            android:fontFamily="@font/poppins_semibold"
+            android:id="@+id/prix_hab"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:layout_toEndOf="@id/image_hab"
+        >
+        <TextView
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@drawable/border"
+            android:text="-"
+            android:textSize="@dimen/_15ssp"
+            android:textColor="@color/primary_text"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_semibold"
+            android:id="@+id/moins"
+            android:gravity="center"
+            />
+        <TextView
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:text="1"
+            android:textSize="@dimen/_15ssp"
+            android:textColor="@color/primary_text"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_semibold"
+            android:id="@+id/quantite"
+            android:gravity="center"
+            />
+        <TextView
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@drawable/border"
+            android:text="+"
+            android:textSize="@dimen/_15ssp"
+            android:textColor="@color/primary_text"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_semibold"
+            android:id="@+id/plus"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
+
+
+
+
+
+
+</RelativeLayout>

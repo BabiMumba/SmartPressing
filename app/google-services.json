@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "429999459794",
+    "project_id": "smartpressing-8f00d",
+    "storage_bucket": "smartpressing-8f00d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:429999459794:android:fe64c243dea7b3aeadcc0b",
+        "android_client_info": {
+          "package_name": "cd.cleanto.clean"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDu4qtm6sxLxopM9LjOARb6uRPegRJIAw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
