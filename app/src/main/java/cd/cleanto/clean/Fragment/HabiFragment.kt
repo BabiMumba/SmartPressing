@@ -9,6 +9,7 @@ import cd.cleanto.clean.Adapters.CartHabiAda
 import cd.cleanto.clean.Models.cart_item
 import cd.cleanto.clean.R
 import cd.cleanto.clean.Utils.Utils
+import cd.cleanto.clean.View.MyMapsActivity
 import cd.cleanto.clean.databinding.FragmentHabiBinding
 
 
@@ -29,8 +30,10 @@ class HabiFragment : Fragment() {
             requireActivity().onBackPressed()
         }
         binding.valider.setOnClickListener {
-            val fragement = MapsFragment()
-            Utils.loadFragment(requireActivity(), fragement)
+//            val fragement = MapsFragment()
+//            Utils.loadFragment(requireActivity(), fragement)
+
+            Utils.newIntent(requireActivity(),MyMapsActivity::class.java)
         }
 
         return binding.root
