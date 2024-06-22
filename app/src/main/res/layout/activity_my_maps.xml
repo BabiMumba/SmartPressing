@@ -9,8 +9,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#222539"
+        android:background="@color/backgroud"
         android:padding="2dp"
+        android:visibility="gone"
         android:weightSum="1"
         android:orientation="horizontal">
 
@@ -22,6 +23,8 @@
             android:layout_marginRight="@dimen/_2sdp"
             android:layout_marginLeft="@dimen/_2sdp"
             android:inputType="textPersonName"
+            android:textColor="@color/primary_text"
+            android:textColorHint="@color/grey"
             android:hint="Search Location" />
 
         <Button
@@ -38,6 +41,7 @@
     </LinearLayout>
 
     <Button
+        android:visibility="gone"
         android:id="@+id/add_to_database"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
