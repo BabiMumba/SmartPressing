@@ -2,6 +2,7 @@ package cd.cleanto.clean.View
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
 import android.location.Address
 import android.location.Geocoder
 import android.location.Location
@@ -9,6 +10,7 @@ import android.location.LocationListener
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -28,8 +30,10 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+
 import java.io.IOException
 
 class MyMapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener,
@@ -39,12 +43,11 @@ class MyMapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private val REQUEST_CODE_LOCATION_PERMISSION = 123
     private lateinit var mLastLocation: Location
-    private var mCurrLocationMarker: Marker? = null
+    private var marker: Marker? = null
     private var mGoogleApiClient: GoogleApiClient? = null
     private lateinit var mLocationRequest: LocationRequest
 
     private var address: Address? = null
-    private var marker: Marker? = null
 
     private lateinit var binding: ActivityMyMapsBinding
 
@@ -56,25 +59,29 @@ class MyMapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync{ googleMap ->
-            this.mMap = googleMap
-            getCurrentLocation()
+        mapFragment.getMapAsync(this)
 
+        binding.back.setOnClickListener {
+            onBackPressed()
         }
-
-      //  binding.searchButton.setOnClickListener { searchLocation() }
-        binding.addToDatabase.setOnClickListener { handleLocationAddedToDatabase() }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+        mMap!!.mapType = GoogleMap.MAP_TYPE_NORMAL
+
+        mMap!!.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(-11.671828362588464, 27.480711936950684), 13f))
+
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             buildGoogleApiClient()
-            mMap?.isMyLocationEnabled = true
-            mMap?.setOnMapClickListener {latLng->
+            mMap?.setOnMapClickListener { latLng ->
+                mMap?.moveCamera(CameraUpdateFactory.newLatLng(latLng))
+                mMap?.animateCamera(CameraUpdateFactory.zoomTo(18f))
                 handleMapClick(latLng)
+                binding.selectAd.visibility = View.VISIBLE
             }
+            mMap?.isMyLocationEnabled = true
         } else {
             Utils.showtoast(this, "Permission Denied")
         }
@@ -82,10 +89,8 @@ class MyMapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener
     private fun handleMapClick(latLng: LatLng) {
         // Supprimez le marqueur précédent s'il existe
         marker?.remove()
-
         // Créez un nouveau marqueur à l'emplacement cliqué
         marker = mMap!!.addMarker(MarkerOptions().position(latLng))
-
         // Affichez les coordonnées dans les logs
         Log.d("MapsActivity", "Latitude: ${latLng.latitude}, Longitude: ${latLng.longitude}")
     }
@@ -95,6 +100,7 @@ class MyMapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener
             // Récupérez les coordonnées du marqueur
             val latitude = m.position.latitude
             val longitude = m.position.longitude
+
 
             // Faites quelque chose avec les coordonnées (les envoyer à un serveur, les afficher, etc.)
             Log.d("MapsActivity", "Latitude choisie: $latitude, Longitude choisie: $longitude")
@@ -115,7 +121,7 @@ class MyMapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener
 
     override fun onLocationChanged(location: Location) {
         mLastLocation = location
-        mCurrLocationMarker?.remove()
+        marker?.remove()
 
         val latLng = LatLng(location.latitude, location.longitude)
         val markerOptions = MarkerOptions()
@@ -123,7 +129,7 @@ class MyMapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener
             .title("Current Position")
             .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
 
-        mCurrLocationMarker = mMap?.addMarker(markerOptions)
+        marker = mMap?.addMarker(markerOptions)
         mMap?.moveCamera(CameraUpdateFactory.newLatLng(latLng))
         mMap?.animateCamera(CameraUpdateFactory.zoomTo(15f))
 
@@ -168,8 +174,6 @@ class MyMapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener
                 mMap?.addMarker(MarkerOptions().position(latLng).title(location))
                 mMap?.animateCamera(CameraUpdateFactory.newLatLng(latLng))
                 mMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 20f))
-                //view satellite
-
                 Toast.makeText(applicationContext, "${address?.latitude} ${address?.longitude}", Toast.LENGTH_LONG).show()
             } else {
                 Toast.makeText(applicationContext, "Can't Find location", Toast.LENGTH_LONG).show()

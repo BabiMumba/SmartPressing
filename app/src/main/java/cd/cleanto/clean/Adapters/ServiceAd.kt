@@ -23,8 +23,8 @@ class ServiceAd(val liste:ArrayList<Service>): RecyclerView.Adapter<ServiceAd.Vi
 
         holder.itemView.setOnClickListener {
 
-            val fragment = HabiFragment()
-            Utils.loadFragment(holder.itemView.context, fragment)
+
+            Utils.newIntent(holder.itemView.context, HabiFragment::class.java)
 
         }
     }

@@ -30,13 +30,14 @@
                 android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Choisissez vos habits"
+                android:text="Vos commandes"
                 android:textSize="@dimen/_13ssp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/poppins_semibold"
                 android:layout_centerHorizontal="true"
                 />
             <include
+                android:visibility="gone"
                 android:id="@+id/cart"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
@@ -55,11 +56,10 @@
         android:layout_height="match_parent"
         android:id="@+id/recycler_hab"
         android:layout_below="@id/toolbar"
-        tools:listitem="@layout/item_hab"
+        tools:listitem="@layout/item_hab_cart"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
         />
-
     <include
         android:id="@+id/commande_lyt"
         layout="@layout/commande_layout"
@@ -67,5 +67,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         />
+
 
 </RelativeLayout>

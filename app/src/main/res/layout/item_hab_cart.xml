@@ -36,6 +36,15 @@
             android:fontFamily="@font/poppins_semibold"
             android:id="@+id/prix_hab"
             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10$"
+            android:textSize="@dimen/_10ssp"
+            android:textColor="@color/primary"
+            android:fontFamily="@font/poppins_semibold"
+            android:id="@+id/prix_total"
+            />
     </LinearLayout>
     <LinearLayout
         android:layout_centerVertical="true"
@@ -46,24 +55,45 @@
         android:gravity="end"
         android:layout_toEndOf="@id/image_hab"
         >
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ajouter"
-            android:textSize="@dimen/_13ssp"
+        <TextView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:text="-"
+            android:backgroundTint="@color/rouge"
+            android:textSize="@dimen/_15ssp"
+            android:background="@drawable/border"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:id="@+id/moins"
             android:textColor="@color/white"
-            android:textAllCaps="false"
-            android:layout_marginEnd="@dimen/_5sdp"
-            android:id="@+id/ajouter_btn"
+            android:fontFamily="@font/poppins_bold"
+            />
+        <TextView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:text="0"
+            android:textSize="@dimen/_15ssp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:id="@+id/quantite"
+            android:textColor="@color/primary_text"
+            android:fontFamily="@font/poppins_bold"
+            />
+        <TextView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:text="+"
+            android:backgroundTint="@color/bleu"
+            android:textSize="@dimen/_15ssp"
+            android:background="@drawable/border"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:id="@+id/plus"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_bold"
             />
 
 
-
     </LinearLayout>
-
-
-
-
-
 
 </RelativeLayout>

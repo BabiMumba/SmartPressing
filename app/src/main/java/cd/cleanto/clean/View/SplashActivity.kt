@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import cd.cleanto.clean.Auth.LoginActivity
+import cd.cleanto.clean.MainActivity
 import cd.cleanto.clean.R
 import cd.cleanto.clean.databinding.ActivitySplashBinding
 
@@ -21,7 +22,7 @@ class SplashActivity : AppCompatActivity() {
         val handler = android.os.Handler()
         handler.postDelayed({
             //redirection vers la page d'accueil
-            startActivity(Intent(this,LoginActivity::class.java))
+            startActivity(Intent(this,MainActivity::class.java))
         }, 3000)
     }
 }
