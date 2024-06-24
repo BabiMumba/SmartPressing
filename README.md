@@ -58,7 +58,7 @@ git clone https://github.com/BabiMumba/clean.git
 
 ## Tester l'application(beta)
 **la version beta du projet**
-[cliquer ici pour telecharger](http://handlebarsjs.com/)
+[cliquer ici pour telecharger](https://github.com/BabiMumba/clean/)
 
 Ce projet de développement mobile 📱 a été assigné par **Mr. Yves Ndeturuye** aux étudiants de L3 Génie Logiciel de l'ESISALAMA (UDBL) pour l'année 2024.<br>
 exposé le 25/06/2024 a 9h<br>
