@@ -30,7 +30,7 @@ class CartHabiAda(val item:ArrayList<cart_item>): RecyclerView.Adapter<CartHabiA
         val price = itemView.findViewById<TextView>(R.id.prix_hab)
         val btn_ajouter = itemView.findViewById<TextView>(R.id.ajouter_btn)
         //val quantity = itemView.findViewById<TextView>(R.id.quantite)
-       // val image = itemView.findViewById<ImageView>(R.id.image_hab)
+        val image = itemView.findViewById<ImageView>(R.id.image_hab)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -41,7 +41,7 @@ class CartHabiAda(val item:ArrayList<cart_item>): RecyclerView.Adapter<CartHabiA
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.name.text = item[position].name
      //   holder.quantity.text = item[position].quantity.toString()
-       // Glide.with(holder.itemView.context).load(item[position].image).into(holder.image)
+        Glide.with(holder.itemView.context).load(item[position].image).into(holder.image)
         val price = Utils.getFormattedPrice(item[position].price)
         holder.price.text = price
         holder.btn_ajouter.setOnClickListener {

@@ -50,6 +50,7 @@ dependencies {
     implementation(libs.play.services.maps)
     implementation(libs.firebase.auth)
     implementation(libs.play.services.location)
+    implementation(libs.firebase.firestore)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -62,4 +63,6 @@ dependencies {
     implementation("com.tbuonomo:dotsindicator:5.0")
 
     implementation ("com.github.bumptech.glide:glide:4.16.0")
+
+    implementation ("com.google.maps:google-maps-services:0.1.3")
 }

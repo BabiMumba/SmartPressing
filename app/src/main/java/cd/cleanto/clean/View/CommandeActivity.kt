@@ -40,15 +40,13 @@ class CommandeActivity : AppCompatActivity() {
             binding.recyclerHab.apply {
                 adapter = CommandeHabiAda(listeDesPaniers)
             }
-            val prixtout = listeDesPaniers.sumByDouble { it.price * it.quantity }
+            val prixtout = listeDesPaniers.sumOf { it.price * it.quantity }
             binding.commandeLyt.totalPrice.text = prixtout.toString()
             (binding.recyclerHab.adapter as CommandeHabiAda).setOnItemClickListener(object :
                 CommandeHabiAda.OnItemClickListener {
                 override fun onItemClick(item: cart_item) {
-                    val prixtout = listeDesPaniers.sumByDouble { it.price * it.quantity }
+                    val prixtout = listeDesPaniers.sumOf { it.price * it.quantity }
                     binding.commandeLyt.totalPrice.text = prixtout.toString()
-
-
                 }
             })
 

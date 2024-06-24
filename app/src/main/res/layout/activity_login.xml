@@ -6,7 +6,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroud"
     tools:context=".Auth.LoginActivity">
     <LinearLayout
         android:layout_marginTop="@dimen/_10sdp"
@@ -36,6 +35,7 @@
             />
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_20sdp"
@@ -43,6 +43,7 @@
             android:layout_marginEnd="@dimen/_10sdp"
             >
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
@@ -54,6 +55,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_10sdp"
@@ -61,6 +63,7 @@
             android:layout_marginEnd="@dimen/_10sdp"
             >
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Mot de passe"
@@ -70,20 +73,35 @@
                 android:fontFamily="@font/poppins_semibold"
                 />
         </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.button.MaterialButton
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Se connecter"
-            android:textSize="@dimen/_10ssp"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/primary"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:id="@+id/btn_login"
-            android:fontFamily="@font/poppins_semibold"
-            app:cornerRadius="@dimen/_7sdp"
-            />
+            >
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/progress"
+                android:layout_centerHorizontal="true"
+                android:indeterminate="true"
+                android:visibility="gone"
+                />
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Se connecter"
+                android:textSize="@dimen/_10ssp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/primary"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:id="@+id/btn_login"
+                android:fontFamily="@font/poppins_semibold"
+                app:cornerRadius="@dimen/_7sdp"
+                />
+
+        </RelativeLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -98,6 +116,8 @@
             android:fontFamily="@font/poppins_semibold"
             android:id="@+id/txt_register"
             />
+
+
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

@@ -33,6 +33,7 @@
             android:fontFamily="@font/poppins_semibold"
             />
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_20sdp"
@@ -40,6 +41,7 @@
             android:layout_marginEnd="@dimen/_10sdp"
             >
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_nom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nom"
@@ -51,6 +53,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_10sdp"
@@ -58,6 +61,7 @@
             android:layout_marginEnd="@dimen/_10sdp"
             >
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_prenom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Prénom"
@@ -68,6 +72,7 @@
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_10sdp"
@@ -75,6 +80,7 @@
             android:layout_marginEnd="@dimen/_10sdp"
             >
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_adress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Adresse de livraison"
@@ -84,7 +90,9 @@
                 android:fontFamily="@font/poppins_semibold"
                 />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_10sdp"
@@ -92,6 +100,26 @@
             android:layout_marginEnd="@dimen/_10sdp"
             >
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Telephone"
+                android:inputType="phone"
+                android:textColorHint="@color/secondary_text"
+                android:textColor="@color/primary_text"
+                android:fontFamily="@font/poppins_semibold"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
@@ -102,6 +130,7 @@
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_10sdp"
@@ -109,6 +138,7 @@
             android:layout_marginEnd="@dimen/_10sdp"
             >
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Mot de passe"
@@ -118,37 +148,34 @@
                 android:fontFamily="@font/poppins_semibold"
                 />
         </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
             >
-            <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/progress"
+                android:layout_centerHorizontal="true"
+                android:indeterminate="true"
+                android:visibility="gone"
+                />
+            <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Confirmer mot de passe"
-                android:inputType="textPassword"
-                android:textColorHint="@color/secondary_text"
-                android:textColor="@color/primary_text"
+                android:text="S'inscrire"
+                android:textSize="@dimen/_10ssp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/primary"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:id="@+id/btn_inscrire"
                 android:fontFamily="@font/poppins_semibold"
+                app:cornerRadius="@dimen/_7sdp"
                 />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="S'inscrire"
-            android:textSize="@dimen/_10ssp"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/primary"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:id="@+id/btn_inscrire"
-            android:fontFamily="@font/poppins_semibold"
-            app:cornerRadius="@dimen/_7sdp"
-            />
+
+        </RelativeLayout>
     </LinearLayout>
 
 

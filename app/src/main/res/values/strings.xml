@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Clean</string>
+    <string name="app_name">SmartPressing</string>
     <string name="nom_app"><font color="#fcfcfd">Pressing</font><font color="#000000">Smart</font></string>
     <string name="slogan">Le pressing en un clic</string>
     <string name="have_account">j\'ai déjà un compte? <font color="#486bd2"><u>Se connecter</u> </font></string>

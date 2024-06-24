@@ -1,6 +1,7 @@
 package cd.cleanto.clean
 
 import android.os.Bundle
+import android.window.OnBackInvokedDispatcher
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -20,6 +21,8 @@ class MainActivity : AppCompatActivity() {
 
         loadFragment(HomeFragment())
         inifragment()
+        //defaut fragment
+        binding.bottomNavigation.selectedItemId = R.id.nav_home
     }
 
     fun loadFragment(fragment: Fragment){
@@ -43,4 +46,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-}
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        if (supportFragmentManager.backStackEntryCount > 1) {
+            supportFragmentManager.popBackStack()
+        } else {
+            finish()
+        }
+    }
+    }

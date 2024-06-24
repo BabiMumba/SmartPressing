@@ -35,10 +35,16 @@ class HabiFragment : AppCompatActivity() {
     fun init() {
         //initialisation des elements de la page
         val liste_habi = ArrayList<cart_item>()
-        liste_habi.add(cart_item(1, "T-shirt", 78.0))
-        liste_habi.add(cart_item(2, "menta", 7.0))
-        liste_habi.add(cart_item(3, "kaputula", 34.0))
-        liste_habi.add(cart_item(4, "nvula", 6.0))
+        liste_habi.add(cart_item(1, "T-shirt", 5.0,image = "https://cdn-icons-png.flaticon.com/128/4715/4715310.png"))
+        liste_habi.add(cart_item(2, "short", 7.0,image ="https://cdn-icons-png.flaticon.com/128/7104/7104604.png"))
+        liste_habi.add(cart_item(3, "jeans", 34.0,image = "https://cdn-icons-png.flaticon.com/128/599/599580.png"))
+        liste_habi.add(cart_item(5, "pull", 6.0,image = "https://cdn-icons-png.flaticon.com/128/9228/9228255.png"))
+        liste_habi.add(cart_item(6, "Veste", 60.0,image = "https://cdn-icons-png.flaticon.com/128/2806/2806153.png"))
+        liste_habi.add(cart_item(7, "Manteau", 24.0,image = "https://cdn-icons-png.flaticon.com/128/3893/3893171.png"))
+        liste_habi.add(cart_item(8, "Chemise", 14.0,image = "https://cdn-icons-png.flaticon.com/128/4722/4722182.png"))
+        liste_habi.add(cart_item(9, "Costume", 58.0,image = "https://cdn-icons-png.flaticon.com/128/703/703272.png"))
+        liste_habi.add(cart_item(10, "jupe", 18.0,image = "https://cdn-icons-png.flaticon.com/128/4507/4507761.png"))
+        liste_habi.add(cart_item(11, "Robe simple", 23.0,image = "https://cdn-icons-png.flaticon.com/128/363/363834.png"))
 
         //creation de l'adapter
         binding.recyclerHab.apply {

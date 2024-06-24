@@ -19,6 +19,9 @@
         android:theme="@style/Theme.Home"
         tools:targetApi="31">
         <activity
+            android:name=".View.drawLocationActivity"
+            android:exported="false" />
+        <activity
             android:name=".View.CommandeActivity"
             android:exported="false" />
         <activity

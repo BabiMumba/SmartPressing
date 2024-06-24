@@ -10,6 +10,7 @@ import cd.cleanto.clean.Auth.LoginActivity
 import cd.cleanto.clean.MainActivity
 import cd.cleanto.clean.R
 import cd.cleanto.clean.databinding.ActivitySplashBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class SplashActivity : AppCompatActivity() {
     lateinit var binding: ActivitySplashBinding
@@ -22,7 +23,18 @@ class SplashActivity : AppCompatActivity() {
         val handler = android.os.Handler()
         handler.postDelayed({
             //redirection vers la page d'accueil
-            startActivity(Intent(this,MainActivity::class.java))
+            checkuserlogin()
         }, 3000)
+    }
+
+    fun checkuserlogin(){
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null){
+            startActivity(Intent(this,MainActivity::class.java))
+            finish()
+        }else{
+            startActivity(Intent(this,OnboardActivity::class.java))
+
+        }
     }
 }

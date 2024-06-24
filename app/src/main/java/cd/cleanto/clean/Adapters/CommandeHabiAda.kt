@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import cd.cleanto.clean.Models.cart_item
 import cd.cleanto.clean.R
 import cd.cleanto.clean.Utils.Utils
+import com.bumptech.glide.Glide
 import java.util.ArrayList
 
 class CommandeHabiAda(val item:ArrayList<cart_item>): RecyclerView.Adapter<CommandeHabiAda.ViewHolder>() {
@@ -31,7 +32,7 @@ class CommandeHabiAda(val item:ArrayList<cart_item>): RecyclerView.Adapter<Comma
         val btn_moins = itemView.findViewById<TextView>(R.id.moins)
         val btn_plus = itemView.findViewById<TextView>(R.id.plus)
         val quantity = itemView.findViewById<TextView>(R.id.quantite)
-       // val image = itemView.findViewById<ImageView>(R.id.image_hab)
+        val image = itemView.findViewById<ImageView>(R.id.image_hab)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -42,7 +43,7 @@ class CommandeHabiAda(val item:ArrayList<cart_item>): RecyclerView.Adapter<Comma
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.name.text = item[position].name
      //   holder.quantity.text = item[position].quantity.toString()
-       // Glide.with(holder.itemView.context).load(item[position].image).into(holder.image)
+        Glide.with(holder.itemView.context).load(item[position].image).into(holder.image)
         val price = Utils.getFormattedPrice(item[position].price)
         val quantity = item[position].quantity
         holder.quantity.text = quantity.toString()

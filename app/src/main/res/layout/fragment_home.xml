@@ -46,7 +46,7 @@
               <TextView
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:text="Stone Castel"
+                  android:text=""
                   android:textSize="@dimen/_13ssp"
                   android:textColor="@color/primary"
                   android:fontFamily="@font/poppins_semibold"
@@ -56,12 +56,13 @@
         </RelativeLayout>
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_150sdp"
             android:layout_marginTop="@dimen/_20sdp"
             >
             <ImageView
+                android:scaleType="fitXY"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:src="@drawable/banner"
                 />
         </com.google.android.material.card.MaterialCardView>

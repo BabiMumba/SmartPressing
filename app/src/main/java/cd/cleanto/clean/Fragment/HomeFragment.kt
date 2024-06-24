@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import cd.cleanto.clean.Adapters.ServiceAd
 import cd.cleanto.clean.Models.Service
 import cd.cleanto.clean.R
+import cd.cleanto.clean.Utils.Utils
 import cd.cleanto.clean.databinding.FragmentHomeBinding
+import com.bumptech.glide.Glide
 
 class HomeFragment : Fragment() {
     lateinit var binding : FragmentHomeBinding
@@ -22,6 +24,7 @@ class HomeFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(layoutInflater)
+        getusername()
 
         initservice()
 
@@ -41,5 +44,22 @@ class HomeFragment : Fragment() {
             adapter = ServiceAd(services)
         }
 
+    }
+
+    fun getusername(){
+        val lien_profil = "https://png.pngtree.com/png-vector/20210921/ourlarge/pngtree-flat-people-profile-icon-png-png-image_3947764.png"
+        Glide.with(requireContext()).load(lien_profil).into(binding.profileImage)
+        val name = Utils.username(requireContext())
+        binding.nomTxt.text = "$name"
+    }
+
+    override fun onStart() {
+        getusername()
+        super.onStart()
+    }
+
+    override fun onResume() {
+        getusername()
+        super.onResume()
     }
 }
