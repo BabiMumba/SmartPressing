@@ -1,5 +1,6 @@
 package cd.cleanto.clean.View
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -54,6 +55,18 @@ class CommandeActivity : AppCompatActivity() {
         }else{
             Utils.showtoast(this, "Veuillez ajouter des articles à votre panier")
         }
+        binding.commandeLyt.commanderBtn.setOnClickListener {
+            if (listeDesPaniers != null) {
+                passdata(listeDesPaniers)
+            }else{
+                Utils.showtoast(this, "Veuillez ajouter des articles à votre panier")
+            }
+        }
 
+    }
+    fun passdata(liste_panier: ArrayList<cart_item>) {
+        val intent = Intent(this, MyMapsActivity::class.java)
+        intent.putParcelableArrayListExtra("liste_panier", liste_panier)
+        startActivity(intent)
     }
 }

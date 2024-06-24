@@ -15,9 +15,12 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import cd.cleanto.clean.Models.cart_item
 import cd.cleanto.clean.R
 import cd.cleanto.clean.Utils.Utils
 import cd.cleanto.clean.databinding.ActivityMyMapsBinding
+import cd.cleanto.clean.databinding.BottomSheetValBinding
+import com.bumptech.glide.util.Util
 
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.common.ConnectionResult
@@ -33,8 +36,12 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 class MyMapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener,
     GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
@@ -48,6 +55,8 @@ class MyMapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener
     private lateinit var mLocationRequest: LocationRequest
 
     private var address: Address? = null
+    private var latitude: Double = 0.0
+    private var longitude: Double = 0.0
 
     private lateinit var binding: ActivityMyMapsBinding
 
@@ -64,6 +73,11 @@ class MyMapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener
         binding.back.setOnClickListener {
             onBackPressed()
         }
+        binding.selectAd.setOnClickListener {
+            bottomsheetsend()
+        }
+
+
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -80,6 +94,8 @@ class MyMapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener
                 mMap?.animateCamera(CameraUpdateFactory.zoomTo(18f))
                 handleMapClick(latLng)
                 binding.selectAd.visibility = View.VISIBLE
+                latitude = latLng.latitude
+                longitude
             }
             mMap?.isMyLocationEnabled = true
         } else {
@@ -93,6 +109,45 @@ class MyMapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener
         marker = mMap!!.addMarker(MarkerOptions().position(latLng))
         // Affichez les coordonnées dans les logs
         Log.d("MapsActivity", "Latitude: ${latLng.latitude}, Longitude: ${latLng.longitude}")
+    }
+
+    fun bottomsheetsend(){
+        val listeDesPaniers = intent.extras?.getParcelableArrayList<cart_item>("liste_panier")
+        val bindig_btn_sheet = BottomSheetValBinding.inflate(layoutInflater)
+
+        val btn = bindig_btn_sheet.sendColisBtn
+
+        val prixtotal = bindig_btn_sheet.totalPrice
+        prixtotal.text = "${listeDesPaniers?.sumOf { it.price * it.quantity }}$"
+        val total_item = bindig_btn_sheet.totalItem
+        total_item.text = "${listeDesPaniers?.size}"
+
+        val date_livraison = bindig_btn_sheet.dateLivraison
+        val date_recuperation = bindig_btn_sheet.dateRamassage
+
+        date_recuperation.text = getdate(1)
+        date_livraison.text = getdate(3)
+
+
+        btn.setOnClickListener {
+            Utils.showtoast(this,"donnee envoyer")
+
+        }
+        val dialog = BottomSheetDialog(this)
+        dialog.setContentView(bindig_btn_sheet.root)
+        dialog.show()
+
+    }
+
+    fun getdate(nb:Int):String{
+        val c = Calendar.getInstance()
+        c.add(Calendar.DATE, nb)
+        val format = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val formattedDate = format.format(c.time)
+
+        return  "$formattedDate"
+
+
     }
     private fun handleValidation() {
         // Vérifiez si un marqueur a été placé

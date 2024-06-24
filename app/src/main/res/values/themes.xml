@@ -11,8 +11,17 @@
         <item name="colorPrimaryDark" >@color/primary</item>
         <!-- <item name="android:statusBarColor" tools:targetApi="l">@color/Accent</item> -->
         <item name="colorAccent">@color/primary</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogTheme</item>
     </style>
 
     <style name="Theme.Clean" parent="Base.Theme.Clean" />
     <style name="Theme.Home" parent="Base.Theme.Home" />
+
+    <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bottom_sheet_shape</item>
+    </style>
+    <!-- BottomSheetDIALOGtheme -->
+    <style name="BottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+    </style>
 </resources>

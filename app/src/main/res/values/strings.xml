@@ -8,4 +8,6 @@
     <string name="connexion">Connexion</string>
     <string name="inscription">Inscription</string>
     <string name="My_api_maps">AIzaSyB5UjX7RDEGVWZFTaFNB5kAAuDaixWi5qQ</string>
+    <string name="valide_cmd"><u>Valider la commande</u></string>
+    <string name="envoyer_btn">Envoyer la commande</string>
 </resources>
