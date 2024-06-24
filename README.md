@@ -21,6 +21,12 @@ L'application mobile **SmartPressing** permet aux utilisateurs de commander faci
 **Firebase**🔥🔥<br>
       - firestore<br>
       - Database
+## Capture d'ecran
+![C](https://github.com/BabiMumba/clean/assets/104514894/9134e491-7fe5-4015-856b-d4473b8b00a1)
+
+
+
+
 
   ## Architecture
  [***MVVM (Model View view Model)***](https://learn.microsoft.com/fr-fr/windows/uwp/data-binding/data-binding-and-mvvm) architecture.
