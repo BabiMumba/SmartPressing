@@ -114,7 +114,6 @@ class MyMapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener
     fun bottomsheetsend(){
         val listeDesPaniers = intent.extras?.getParcelableArrayList<cart_item>("liste_panier")
         val bindig_btn_sheet = BottomSheetValBinding.inflate(layoutInflater)
-
         val btn = bindig_btn_sheet.sendColisBtn
 
         val prixtotal = bindig_btn_sheet.totalPrice
@@ -130,7 +129,6 @@ class MyMapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener
 
 
         btn.setOnClickListener {
-            Utils.showtoast(this,"donnee envoyer")
 
         }
         val dialog = BottomSheetDialog(this)
