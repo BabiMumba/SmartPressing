@@ -40,7 +40,6 @@ class CartHabiAda(val item:ArrayList<cart_item>): RecyclerView.Adapter<CartHabiA
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.name.text = item[position].name
-     //   holder.quantity.text = item[position].quantity.toString()
         Glide.with(holder.itemView.context).load(item[position].image).into(holder.image)
         val price = Utils.getFormattedPrice(item[position].price)
         holder.price.text = price

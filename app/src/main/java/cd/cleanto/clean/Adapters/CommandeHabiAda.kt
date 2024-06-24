@@ -58,10 +58,23 @@ class CommandeHabiAda(val item:ArrayList<cart_item>): RecyclerView.Adapter<Comma
             onItemClickListener?.onItemClick(item[position])
         }
         holder.btn_moins.setOnClickListener {
-            if (item[position].quantity > 1) {
+            val currentQuantity = item[position].quantity
+            if (currentQuantity > 1) {
                 item[position].quantity -= 1
                 notifyItemChanged(position)
                 onItemClickListener?.onItemClick(item[position])
+            } else {
+                // Supprimer l'élément
+                item.removeAt(position)
+                notifyItemRemoved(position)
+                // Mettre à jour la plage d'éléments modifiés
+                notifyItemRangeChanged(position, item.size)
+                // Vérifier si l'élément suivant existe encore
+                if (position < item.size) {
+                    onItemClickListener?.onItemClick(item[position])
+                } else {
+                    // L'élément a été supprimé, rien à cliquer
+                }
             }
         }
 

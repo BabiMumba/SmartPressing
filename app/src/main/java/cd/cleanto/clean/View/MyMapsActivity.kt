@@ -37,6 +37,9 @@ import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
+import com.google.firebase.firestore.FirebaseFirestore
 
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -83,10 +86,7 @@ class MyMapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         mMap!!.mapType = GoogleMap.MAP_TYPE_NORMAL
-
         mMap!!.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(-11.671828362588464, 27.480711936950684), 13f))
-
-
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             buildGoogleApiClient()
             mMap?.setOnMapClickListener { latLng ->
@@ -95,7 +95,7 @@ class MyMapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener
                 handleMapClick(latLng)
                 binding.selectAd.visibility = View.VISIBLE
                 latitude = latLng.latitude
-                longitude
+                longitude= latLng.longitude
             }
             mMap?.isMyLocationEnabled = true
         } else {
@@ -112,10 +112,11 @@ class MyMapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener
     }
 
     fun bottomsheetsend(){
+        val mail = Firebase.auth.currentUser?.email.toString()
         val listeDesPaniers = intent.extras?.getParcelableArrayList<cart_item>("liste_panier")
         val bindig_btn_sheet = BottomSheetValBinding.inflate(layoutInflater)
         val btn = bindig_btn_sheet.sendColisBtn
-
+        val dialog = BottomSheetDialog(this)
         val prixtotal = bindig_btn_sheet.totalPrice
         prixtotal.text = "${listeDesPaniers?.sumOf { it.price * it.quantity }}$"
         val total_item = bindig_btn_sheet.totalItem
@@ -129,9 +130,32 @@ class MyMapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener
 
 
         btn.setOnClickListener {
+            Utils.isloading(bindig_btn_sheet.sendColisBtn,bindig_btn_sheet.progress,true)
+            val db = FirebaseFirestore.getInstance()
+            val uid = Utils.getUID(mail)
+            val data = hashMapOf(
+                "latitude" to latitude,
+                "longitude" to longitude,
+                "total" to listeDesPaniers?.sumOf { it.price * it.quantity },
+                "items" to listeDesPaniers?.size,
+                "date_livraison" to getdate(3),
+                "date_recuperation" to getdate(1),
+                "uid" to uid
+            )
+            db.collection("colis").add(data)
+                .addOnCompleteListener {
+                    if (it.isSuccessful){
+                        Utils.showtoast(this, "Colis envoyé avec succès")
+                        Utils.isloading(bindig_btn_sheet.sendColisBtn,bindig_btn_sheet.progress,false)
+                        dialog.dismiss()
+                        onBackPressed()
+                    }else{
+                        Utils.showtoast(this, "Erreur lors de l'envoi du colis")
+                        Utils.isloading(bindig_btn_sheet.sendColisBtn,bindig_btn_sheet.progress,false)
+                    }
+                }
 
         }
-        val dialog = BottomSheetDialog(this)
         dialog.setContentView(bindig_btn_sheet.root)
         dialog.show()
 

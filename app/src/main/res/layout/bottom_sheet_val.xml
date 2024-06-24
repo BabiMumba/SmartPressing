@@ -138,19 +138,34 @@
             </LinearLayout>
 
         </LinearLayout>
-        <com.google.android.material.button.MaterialButton
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/send_colis_btn"
-            android:text="@string/envoyer_btn"
-            android:textSize="@dimen/_10sdp"
-            android:gravity="center"
-            app:cornerRadius="@dimen/_5sdp"
-            android:layout_margin="@dimen/_5sdp"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/primary"
-            />
+            >
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/progress"
+                android:layout_centerHorizontal="true"
+                android:indeterminate="true"
+                android:visibility="gone"
+                />
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/send_colis_btn"
+                android:text="@string/envoyer_btn"
+                android:textSize="@dimen/_10sdp"
+                android:gravity="center"
+                app:cornerRadius="@dimen/_5sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/primary"
+                />
+
+        </RelativeLayout>
+
 
     </LinearLayout>
 
